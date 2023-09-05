@@ -1,0 +1,35 @@
+<network xmlns:dnsmasq="http://libvirt.org/schemas/network/dnsmasq/1.0">
+  <name>okd</name>
+  <uuid>35dc4290-01f4-4388-8be9-1967ea87febb</uuid>
+  <forward mode="nat">
+    <nat>
+      <port start="1024" end="65535"/>
+    </nat>
+  </forward>
+  <bridge name="virbr1" stp="on" delay="0"/>
+  <mac address="52:54:00:9c:a0:d7"/>
+  <domain name="okd.local" localOnly="yes"/>
+  <ip address="192.168.100.1" netmask="255.255.255.0">
+    <dhcp>
+      <range start="192.168.100.128" end="192.168.100.254"/>
+      <host mac="52:54:00:13:20:13" name="okd-svc" ip="192.168.100.2"/>
+      <host mac="52:54:00:8b:df:44" name="okd-bootstrap" ip="192.168.100.3"/>
+      <host mac="52:54:00:5b:47:7d" name="okd-controlplane-1" ip="192.168.100.10"/>
+    </dhcp>
+  </ip>
+  <dnsmasq:options>
+    <dnsmasq:option value="address=/okd-bootstrap.okd-lab.okd.local/192.168.100.3"/>
+    <dnsmasq:option value="host-record=okd-bootstrap.okd-lab.okd.local,192.168.100.3"/>
+    <dnsmasq:option value="address=/okd-controlplane-1.okd-lab.okd.local/192.168.100.10"/>
+    <dnsmasq:option value="host-record=okd-controlplane-1.okd-lab.okd.local,192.168.100.10"/>
+    <dnsmasq:option value="address=/api.okd-lab.okd.local/192.168.100.2"/>
+    <dnsmasq:option value="host-record=api.okd-lab.okd.local,192.168.100.2"/>
+    <dnsmasq:option value="address=/api-int.okd-lab.okd.local/192.168.100.2"/>
+    <dnsmasq:option value="host-record=api-int.okd-lab.okd.local,192.168.100.2"/>
+    <dnsmasq:option value="address=/etcd-0.okd-lab.okd.local/192.168.100.10"/>
+    <dnsmasq:option value="address=/.apps.okd-lab.okd.local/192.168.100.2"/>
+    <dnsmasq:option value="srv-host=_etcd-server-ssl._tcp,etcd-0.okd-lab.okd.local,2380"/>
+    <dnsmasq:option value="address=/oauth-openshift.apps.okd-lab.okd.local/192.168.100.2"/>
+    <dnsmasq:option value="address=/console-openshift-console.apps.okd-lab.okd.local/192.168.100.2"/>
+  </dnsmasq:options>
+</network>

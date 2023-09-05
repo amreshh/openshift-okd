@@ -1,0 +1,15 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDSHbD8qYsRUayhZH1E9dlej+wv9DThHeB8+4ht5jDG6CML1rg0tn2V+9pLDciCTa3EJEZZ0Bm1xPc+tqXH0O5bHlXN/AL7/i10vhHb9ipS4tO4EnJnFxDP7ejcmhKRbh+HPi9Vi1ssCxLQzGhpyswuIND1hya6ZvgcuyHPBDiTpRyUcc4k6oRauOMm2MCZXTViKNXzNTUE5k7dXRzQLoqdud36E0SoBvKY2GzYCnUBZj4F8VMKSGAPOubUi6b2ZiqMFOa7Oqvf1jRuzWOxaKvkxxzceh9MQUeXOMbjr0DEGtxBrs0jSZT6EoBETDAXR5g/NQFNSVWEu22ndLk4c1a+I0NOVr1qIWgkNMvKF3lAkWjl+G5EVf2GWPY5NCuWhbdcx9arhnO5ISHx0RBpEZwqoK0qgc+ahR7X6EDP4wdrNT7zStvK5NPtAUSdLzOE+YKik7eM2JkanMBuC9Iri+BDhcSmABgPV6ctCPWlSlIlrwQXpKgzQT2t6l5l1JhO5PDAn1C/WoK4TLYURGaO/dysHmUv1irJTjMNliqoPi8I5+uEqd4Gg4qrp+WncJLyGKVZQZ1msy8XcCTh3oWHcOcdVWrgySflz3cZUsAqtUj6DLcdhO/g3+p7YhUZQbFWbI2d4w6LrllQ+k8TWYCihYbe+AuAxDU0RJRmHQ0gNLkgqQ== amresh@chaosrealm"
+        ]
+      }
+    ]
+  }
+}

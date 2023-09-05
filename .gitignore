@@ -1,0 +1,4 @@
+ignition-configs
+okd-tools
+terraform/.terraform
+terraform/coreos

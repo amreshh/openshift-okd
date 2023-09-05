@@ -1,0 +1,6 @@
+# Bootstrap node
+ip=dhcp rd.neednet=1 coreos.inst.skip_reboot=yes coreos.inst.insecure=yes coreos.inst.install_dev=/dev/vda coreos.live.rootfs_url=http://192.168.100.153/fedora-coreos-38.20230806.3.0-live-rootfs.x86_64.img coreos.inst.image_url=http://192.168.100.153/fedora-coreos-38.20230806.3.0-metal.x86_64.raw.xz coreos.inst.ignition_url=http://192.168.100.153/bootstrap.ign
+
+
+# Master node
+ip=dhcp rd.neednet=1 coreos.inst.skip_reboot=yes coreos.inst.insecure=yes coreos.inst.install_dev=/dev/vda coreos.live.rootfs_url=http://192.168.100.153/fedora-coreos-38.20230806.3.0-live-rootfs.x86_64.img coreos.inst.image_url=http://192.168.100.153/fedora-coreos-38.20230806.3.0-metal.x86_64.raw.xz coreos.inst.ignition_url=http://192.168.100.153/master.ign

@@ -1,0 +1,20 @@
+{
+    "dockerFile": "Dockerfile",
+    "shutdownAction": "stopContainer",
+    "mounts": [
+      "source=/var/run/libvirt/virtqemud-sock,target=/var/run/libvirt/libvirt-sock,type=bind,consistency=cached"
+    ],
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "VisualStudioExptTeam.vscodeintellicode",
+          "GitHub.copilot",
+          "GitHub.copilot-chat",
+          "bierner.markdown-mermaid",
+          "docsmsft.docs-markdown",
+          "hediet.vscode-drawio",
+          "HashiCorp.terraform"
+        ]
+      }
+    }
+  }

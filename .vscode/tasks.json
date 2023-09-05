@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "generate okd_svc ignition",
+      "type": "shell",
+      "command": "butane --output terraform/okd_svc.ign --pretty --strict okd_svc.ign.yaml"
+    }
+  ]
+}

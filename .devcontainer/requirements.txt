@@ -1,0 +1,5 @@
+pip==23.2.1
+ansible==8.3.0
+ansible-vault==2.1.0
+ansible-lint==6.18.0
+libvirt-python==9.7.0

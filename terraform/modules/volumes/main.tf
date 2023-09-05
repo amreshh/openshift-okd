@@ -6,9 +6,10 @@ resource "libvirt_volume" "fedora_coreos" {
 }
 
 resource "libvirt_volume" "okd_svc" {
-  name = "okd_svc.qcow2"
-  pool = "default"
-  size = 161061273600
+  name           = "okd_svc.qcow2"
+  pool           = "default"
+  size           = 161061273600
+  base_volume_id = libvirt_volume.fedora_coreos.id
 }
 
 resource "libvirt_volume" "okd_bootstrap" {

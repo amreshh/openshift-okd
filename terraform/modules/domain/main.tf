@@ -2,7 +2,7 @@ resource "libvirt_domain" "okd_svc" {
   name            = "okd_svc"
   description     = "okd service vm"
   vcpu            = 1
-  memory          = 512 # MiB
+  memory          = 7629 # MiB
   running         = true
   coreos_ignition = var.okd_svc_ignition_id
 

@@ -13,11 +13,11 @@ passwd:
 #           number: 4
 #           size_mib: 0
 #           resize: true
-  # files:
-  #   - path: /usr/local/bin
-  #     contents:
-  #       source: https://github.com/okd-project/okd/releases/download/4.13.0-0.okd-2023-09-03-082426/openshift-install-linux-4.13.0-0.okd-2023-09-03-082426.tar.gz
-  #       compression: gzip
-  #       verification:
-  #         hash: sha256-66f79761a393d814e4e6dc3a989d667bddc64fc0e01da512efb67b3d85611c1b
-  #     mode: 0755
+#   files:
+#     - path: /usr/local/bin/amresh
+#       contents:
+#         source: https://github.com/okd-project/okd/releases/download/4.13.0-0.okd-2023-09-03-082426/openshift-install-linux-4.13.0-0.okd-2023-09-03-082426.tar.gz
+#         compression: gzip
+#         verification:
+#           hash: sha256-66f79761a393d814e4e6dc3a989d667bddc64fc0e01da512efb67b3d85611c1b
+#       mode: 0755

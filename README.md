@@ -52,7 +52,7 @@ When using okd, make sure to download the openshift tools for okd. The redhat pr
 - https://www.okd.io/installation/#plan-your-installation
 - https://docs.fedoraproject.org/en-US/fedora-coreos
 
-- [^1]: https://shivering-isles.com/til/2021/07/openshift-installer-is-not-openshift-installer
-- [^2]: https://fedoraproject.org/coreos/download
-- [^3]: https://github.com/okd-project/okd/tags
-- [^4]: https://console.redhat.com/openshift/downloads
+[^1]: https://shivering-isles.com/til/2021/07/openshift-installer-is-not-openshift-installer
+[^2]: https://fedoraproject.org/coreos/download
+[^3]: https://github.com/okd-project/okd/tags
+[^4]: https://console.redhat.com/openshift/downloads

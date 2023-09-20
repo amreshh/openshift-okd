@@ -12,9 +12,9 @@ When using okd, make sure to download the openshift tools for okd. The redhat pr
 |okd-controlplane-1 |4     |15260        |192.168.150.10|
 
 ## cluster
-|name |domain  |
-|-----|--------|
-|local|okd.lab |
+|name |domain  |url                                                  |
+|-----|--------|-----------------------------------------------------|
+|local|okd.lab |https://console-openshift-console.apps.local.okd.lab |
 
 
 # Pre-requisites
@@ -40,6 +40,10 @@ When using okd, make sure to download the openshift tools for okd. The redhat pr
 - Install bootstrap node, run commands from within the ignition_configs directory
     ```bash
     openshift-install wait-for bootstrap-complete --log-level=debug
+    ```
+- At this point the bootstrap node can be destroyed
+    ```bash
+    # destroy bootstrap node with terraform
     ```
 - Install controlplane, run commands from within the igntion_configs directory
     ```bash

@@ -19,7 +19,7 @@ resource "libvirt_domain" "okd_bootstrap" {
     network_id     = var.network_id
     hostname       = "okd-bootstrap"
     addresses      = ["192.168.150.3"]
-    mac            = "AA:BB:CC:10:00:01"
+    mac            = "AA:BB:CC:10:00:00"
     wait_for_lease = true
   }
 }

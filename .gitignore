@@ -1,0 +1,9 @@
+tools/
+install-config.yaml
+ignition_configs/
+coreos/
+
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.lock.*

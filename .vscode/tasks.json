@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "generate ignition configs",
+      "type": "shell",
+      "command": "openshift-install create ignition-configs --dir ignition_configs/"
+    }
+  ]
+}

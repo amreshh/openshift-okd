@@ -1,0 +1,24 @@
+variable "network_id" {
+  type        = string
+  description = "value of network_id"
+}
+
+variable "okd_bootstrap_volume_id" {
+  type        = string
+  description = "value of okd_bootstrap_volume_id"
+}
+
+variable "okd_bootstrap_ignition_id" {
+  type        = string
+  description = "value of okd_bootstrap_ignition_id"
+}
+
+variable "okd_controlplane_1_volume_id" {
+  type        = string
+  description = "value of okd_controlplane_1_volume_id"
+}
+
+variable "okd_master_ignition_id" {
+  type        = string
+  description = "value of okd_master_ignition_id"
+}

@@ -11,6 +11,7 @@ resource "libvirt_network" "okd_network" {
   }
 
   dnsmasq_options {
+    # Bootstrap
     options {
       option_name  = "address"
       option_value = "/okd-bootstrap.local.okd.lab/192.168.150.3"
@@ -21,49 +22,97 @@ resource "libvirt_network" "okd_network" {
     }
     options {
       option_name  = "address"
+      option_value = "/api-int.local.okd.lab/192.168.150.3"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "api-int.local.okd.lab,192.168.150.3"
+    }
+
+    # Control nodes
+    options {
+      option_name  = "address"
       option_value = "/okd-controlplane-1.local.okd.lab/192.168.150.10"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/okd-controlplane-2.local.okd.lab/192.168.150.11"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/okd-controlplane-3.local.okd.lab/192.168.150.12"
     }
     options {
       option_name  = "host-record"
       option_value = "okd-controlplane-1.local.okd.lab,192.168.150.10"
     }
     options {
+      option_name  = "host-record"
+      option_value = "okd-controlplane-2.local.okd.lab,192.168.150.11"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "okd-controlplane-3.local.okd.lab,192.168.150.12"
+    }
+    options {
       option_name  = "address"
       option_value = "/api.local.okd.lab/192.168.150.10"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/api.local.okd.lab/192.168.150.11"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/api.local.okd.lab/192.168.150.12"
     }
     options {
       option_name  = "host-record"
       option_value = "api.local.okd.lab,192.168.150.10"
     }
     options {
-      option_name  = "address"
-      option_value = "/api-int.local.okd.lab/192.168.150.3"
+      option_name  = "host-record"
+      option_value = "api.local.okd.lab,192.168.150.11"
     }
-    # we need to add a second entry for api-int to point to the master as well here
+    options {
+      option_name  = "host-record"
+      option_value = "api.local.okd.lab,192.168.150.12"
+    }
     options {
       option_name  = "address"
       option_value = "/api-int.local.okd.lab/192.168.150.10"
     }
     options {
+      option_name  = "address"
+      option_value = "/api-int.local.okd.lab/192.168.150.11"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/api-int.local.okd.lab/192.168.150.12"
+    }
+    options {
       option_name  = "host-record"
       option_value = "api-int.local.okd.lab,192.168.150.10"
     }
-    # end
     options {
       option_name  = "host-record"
-      option_value = "api-int.local.okd.lab,192.168.150.3"
+      option_value = "api-int.local.okd.lab,192.168.150.11"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "api-int.local.okd.lab,192.168.150.12"
     }
     options {
       option_name  = "address"
-      option_value = "/etcd-0.local.okd.lab/192.168.150.10"
+      option_value = "/.apps.local.okd.lab/192.168.150.11"
     }
     options {
       option_name  = "address"
-      option_value = "/.apps.local.okd.lab/192.168.150.10"
+      option_value = "/.apps.local.okd.lab/192.168.150.12"
     }
     options {
-      option_name  = "srv-host"
-      option_value = "_etcd-server-ssl._tcp,etcd-0.local.okd.lab,2380"
+      option_name  = "address"
+      option_value = "/.apps.local.okd.lab/192.168.150.13"
     }
     options {
       option_name  = "address"
@@ -71,7 +120,49 @@ resource "libvirt_network" "okd_network" {
     }
     options {
       option_name  = "address"
+      option_value = "/oauth-openshift.apps.local.okd.lab/192.168.150.11"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/oauth-openshift.apps.local.okd.lab/192.168.150.12"
+    }
+    options {
+      option_name  = "address"
       option_value = "/console-openshift-console.apps.local.okd.lab/192.168.150.10"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/console-openshift-console.apps.local.okd.lab/192.168.150.11"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/console-openshift-console.apps.local.okd.lab/192.168.150.12"
+    }
+
+    # Etcd
+    options {
+      option_name  = "address"
+      option_value = "/etcd-0.local.okd.lab/192.168.150.10"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/etcd-1.local.okd.lab/192.168.150.11"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/etcd-2.local.okd.lab/192.168.150.12"
+    }
+    options {
+      option_name  = "srv-host"
+      option_value = "_etcd-server-ssl._tcp,etcd-0.local.okd.lab,2380"
+    }
+    options {
+      option_name  = "srv-host"
+      option_value = "_etcd-server-ssl._tcp,etcd-1.local.okd.lab,2380"
+    }
+    options {
+      option_name  = "srv-host"
+      option_value = "_etcd-server-ssl._tcp,etcd-2.local.okd.lab,2380"
     }
   }
 }

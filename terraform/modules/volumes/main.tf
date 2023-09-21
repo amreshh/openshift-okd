@@ -18,3 +18,17 @@ resource "libvirt_volume" "okd_controlplane_1" {
   size           = 161061273600
   base_volume_id = libvirt_volume.fedora_coreos.id
 }
+
+resource "libvirt_volume" "okd_controlplane_2" {
+  name           = "okd_controlplane_2.qcow2"
+  pool           = "default"
+  size           = 161061273600
+  base_volume_id = libvirt_volume.fedora_coreos.id
+}
+
+resource "libvirt_volume" "okd_controlplane_3" {
+  name           = "okd_controlplane_3.qcow2"
+  pool           = "default"
+  size           = 161061273600
+  base_volume_id = libvirt_volume.fedora_coreos.id
+}

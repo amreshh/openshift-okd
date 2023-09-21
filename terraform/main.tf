@@ -16,6 +16,8 @@ module "domain" {
   okd_bootstrap_volume_id      = module.volumes.okd_bootstrap_volume.id
   okd_bootstrap_ignition_id    = module.ignition.okd_bootstrap_ignition.id
   okd_controlplane_1_volume_id = module.volumes.okd_controlplane_1_volume.id
+  okd_controlplane_2_volume_id = module.volumes.okd_controlplane_2_volume.id
+  okd_controlplane_3_volume_id = module.volumes.okd_controlplane_3_volume.id
   okd_master_ignition_id       = module.ignition.okd_master_ignition.id
 
   # depends_on = [

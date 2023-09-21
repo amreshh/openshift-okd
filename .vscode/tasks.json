@@ -5,6 +5,16 @@
       "label": "generate ignition configs",
       "type": "shell",
       "command": "openshift-install create ignition-configs --dir ignition_configs/"
+    },
+    {
+      "label": "install bootstrap node",
+      "type": "shell",
+      "command": "openshift-install wait-for bootstrap-complete --log-level debug --dir ignition_configs"
+    },
+    {
+      "label": "install cluster",
+      "type": "shell",
+      "command": "openshift-install wait-for install-complete --log-level debug --dir ignition_configs"
     }
   ]
 }

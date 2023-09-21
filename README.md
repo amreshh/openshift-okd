@@ -1,5 +1,5 @@
 # OpenShift OKD
-This project provisions a single node OpenShift OKD cluster on KVM/QEMU VM's.
+This project provisions a single node OpenShift OKD cluster on KVM/QEMU VM's. Infrastructure is provisioned using terraform and the cluster is created using the User-provisioned infrastructure (UPI) method.
 
 # Important
 When using okd, make sure to download the openshift tools for okd. The redhat provided tools will not work on fedora coreos.[^1].
@@ -12,9 +12,9 @@ When using okd, make sure to download the openshift tools for okd. The redhat pr
 |okd-controlplane-1 |4     |15260        |192.168.150.10|
 
 ## cluster
-|name |domain  |
-|-----|--------|
-|local|okd.lab |
+|name |domain  |url                                                  |
+|-----|--------|-----------------------------------------------------|
+|local|okd.lab |https://console-openshift-console.apps.local.okd.lab |
 
 
 # Pre-requisites
@@ -26,6 +26,7 @@ When using okd, make sure to download the openshift tools for okd. The redhat pr
     address=/okd.lab/192.168.150.10
     ```
 - RedHat pull secret[^4]
+- Copy [install-config.yaml.template](install-config.yaml.template) to [install-config.yaml](install-config.yaml) and fill in the required values. The install-config.yaml file is used to generate the ignition files[^5].
 - Generate ignition configuration files
     ```bash
     openshift-install create ignition-configs --dir ignition_configs/
@@ -45,14 +46,20 @@ When using okd, make sure to download the openshift tools for okd. The redhat pr
     ```bash
     openshift-install wait-for install-complete --log-level=debug
     ```
+- At this point the bootstrap node can be destroyed
+    ```bash
+    # destroy bootstrap node with terraform
+    ```
 
 # References
 - https://www.okd.io/
 - https://www.okd.io/guides/upi-sno/#architecture-this-refers-to-a-full-high-availability-cluster
 - https://www.okd.io/installation/#plan-your-installation
 - https://docs.fedoraproject.org/en-US/fedora-coreos
+- https://docs.openshift.com/container-platform/4.13/installing/installing_platform_agnostic/installing-platform-agnostic.html
 
 [^1]: https://shivering-isles.com/til/2021/07/openshift-installer-is-not-openshift-installer
 [^2]: https://fedoraproject.org/coreos/download
 [^3]: https://github.com/okd-project/okd/tags
 [^4]: https://console.redhat.com/openshift/downloads
+[^5]: https://docs.openshift.com/container-platform/4.13/installing/installing_platform_agnostic/installing-platform-agnostic.html#installation-initializing-manual_installing-platform-agnostic

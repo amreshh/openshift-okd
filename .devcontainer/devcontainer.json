@@ -14,7 +14,8 @@
           "bierner.markdown-mermaid",
           "docsmsft.docs-markdown",
           "hediet.vscode-drawio",
-          "HashiCorp.terraform"
+          "HashiCorp.terraform",
+          "eamodio.gitlens"
         ]
       }
     }

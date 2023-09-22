@@ -15,6 +15,13 @@
       "label": "install cluster",
       "type": "shell",
       "command": "openshift-install wait-for install-complete --log-level debug --dir ignition_configs"
+    },
+    {
+      "label": "tflint",
+      "type": "shell",
+      "command": [
+        "tflint ${workspaceFolder}/terraform"
+      ]
     }
   ]
 }

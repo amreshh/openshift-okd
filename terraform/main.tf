@@ -5,8 +5,8 @@ module "network" {
 module "volumes" {
   source                   = "./modules/volumes"
   coreos_image             = var.coreos_image
-  bootstrap_volume_size    = var.bootstrap_volume_size
-  controlplane_volume_size = var.controlplane_volume_size
+  bootstrap_volume_size    = var.bootstrap.disk_size
+  controlplane_volume_size = var.controlplane_1.disk_size # TODO: should I split it per controlplane or keep all the nodes the same size?
 }
 
 module "ignition" {

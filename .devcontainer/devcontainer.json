@@ -1,7 +1,7 @@
 {
     "dockerFile": "Dockerfile",
     "shutdownAction": "stopContainer",
-    // "onCreateCommand": "cp /workspaces/openshift-okd/install-config.yaml /workspaces/openshift-okd/ignition_configs/install-config.yaml",
+    "onCreateCommand": "cp /workspaces/openshift-okd/install-config.yaml /workspaces/openshift-okd/ignition_configs/install-config.yaml",
     "mounts": [
       "source=/var/run/libvirt/virtqemud-sock,target=/var/run/libvirt/libvirt-sock,type=bind,consistency=cached"
     ],

@@ -1,6 +1,6 @@
 FROM docker.io/opensuse/tumbleweed:latest
 
-# ADD ./tools/* /usr/local/bin/
+ADD ./tools/* /usr/local/bin/
 
 RUN zypper in -y unzip terraform butane git bind-utils vim
 

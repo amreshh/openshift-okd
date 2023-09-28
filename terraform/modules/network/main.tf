@@ -11,146 +11,138 @@ resource "libvirt_network" "okd_network" {
   }
 
   dnsmasq_options {
-    # Bootstrap
+    # bootstrap
     options {
       option_name  = "address"
-      option_value = "/okd-bootstrap.local.okd.lab/192.168.150.3"
+      option_value = "/okd-bootstrap.local.okd.lab/${var.bootstrap.address}"
     }
     options {
       option_name  = "host-record"
-      option_value = "okd-bootstrap.local.okd.lab,192.168.150.3"
+      option_value = "okd-bootstrap.local.okd.lab,${var.bootstrap.address}"
     }
     options {
       option_name  = "address"
-      option_value = "/api-int.local.okd.lab/192.168.150.3"
+      option_value = "/api-int.local.okd.lab/${var.bootstrap.address}"
     }
     options {
       option_name  = "host-record"
-      option_value = "api-int.local.okd.lab,192.168.150.3"
+      option_value = "api-int.local.okd.lab,${var.bootstrap.address}"
     }
 
-    # Control nodes
+    # control plane 1
     options {
       option_name  = "address"
-      option_value = "/okd-controlplane-1.local.okd.lab/192.168.150.10"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/okd-controlplane-2.local.okd.lab/192.168.150.11"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/okd-controlplane-3.local.okd.lab/192.168.150.12"
+      option_value = "/okd-controlplane-1.local.okd.lab/${var.controlplane_1.address}"
     }
     options {
       option_name  = "host-record"
-      option_value = "okd-controlplane-1.local.okd.lab,192.168.150.10"
+      option_value = "okd-controlplane-1.local.okd.lab,${var.controlplane_1.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/api.local.okd.lab/${var.controlplane_1.address}"
     }
     options {
       option_name  = "host-record"
-      option_value = "okd-controlplane-2.local.okd.lab,192.168.150.11"
+      option_value = "api.local.okd.lab,${var.controlplane_1.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/api-int.local.okd.lab/${var.controlplane_1.address}"
     }
     options {
       option_name  = "host-record"
-      option_value = "okd-controlplane-3.local.okd.lab,192.168.150.12"
+      option_value = "api-int.local.okd.lab,${var.controlplane_1.address}"
     }
     options {
       option_name  = "address"
-      option_value = "/api.local.okd.lab/192.168.150.10"
+      option_value = "/oauth-openshift.apps.local.okd.lab/${var.controlplane_1.address}"
     }
     options {
       option_name  = "address"
-      option_value = "/api.local.okd.lab/192.168.150.11"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/api.local.okd.lab/192.168.150.12"
-    }
-    options {
-      option_name  = "host-record"
-      option_value = "api.local.okd.lab,192.168.150.10"
-    }
-    options {
-      option_name  = "host-record"
-      option_value = "api.local.okd.lab,192.168.150.11"
-    }
-    options {
-      option_name  = "host-record"
-      option_value = "api.local.okd.lab,192.168.150.12"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/api-int.local.okd.lab/192.168.150.10"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/api-int.local.okd.lab/192.168.150.11"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/api-int.local.okd.lab/192.168.150.12"
-    }
-    options {
-      option_name  = "host-record"
-      option_value = "api-int.local.okd.lab,192.168.150.10"
-    }
-    options {
-      option_name  = "host-record"
-      option_value = "api-int.local.okd.lab,192.168.150.11"
-    }
-    options {
-      option_name  = "host-record"
-      option_value = "api-int.local.okd.lab,192.168.150.12"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/.apps.local.okd.lab/192.168.150.11"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/.apps.local.okd.lab/192.168.150.12"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/.apps.local.okd.lab/192.168.150.13"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/oauth-openshift.apps.local.okd.lab/192.168.150.10"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/oauth-openshift.apps.local.okd.lab/192.168.150.11"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/oauth-openshift.apps.local.okd.lab/192.168.150.12"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/console-openshift-console.apps.local.okd.lab/192.168.150.10"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/console-openshift-console.apps.local.okd.lab/192.168.150.11"
-    }
-    options {
-      option_name  = "address"
-      option_value = "/console-openshift-console.apps.local.okd.lab/192.168.150.12"
+      option_value = "/console-openshift-console.apps.local.okd.lab/${var.controlplane_1.address}"
     }
 
-    # Etcd
+    # control plane 2
     options {
       option_name  = "address"
-      option_value = "/etcd-0.local.okd.lab/192.168.150.10"
+      option_value = "/okd-controlplane-2.local.okd.lab/${var.controlplane_2.address}"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "okd-controlplane-2.local.okd.lab,${var.controlplane_2.address}"
     }
     options {
       option_name  = "address"
-      option_value = "/etcd-1.local.okd.lab/192.168.150.11"
+      option_value = "/api.local.okd.lab/${var.controlplane_2.address}"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "api.local.okd.lab,${var.controlplane_2.address}"
     }
     options {
       option_name  = "address"
-      option_value = "/etcd-2.local.okd.lab/192.168.150.12"
+      option_value = "/api-int.local.okd.lab/${var.controlplane_2.address}"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "api-int.local.okd.lab,${var.controlplane_2.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/oauth-openshift.apps.local.okd.lab/${var.controlplane_2.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/console-openshift-console.apps.local.okd.lab/${var.controlplane_2.address}"
+    }
+
+    # control plane 3
+    options {
+      option_name  = "address"
+      option_value = "/okd-controlplane-3.local.okd.lab/${var.controlplane_3.address}"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "okd-controlplane-3.local.okd.lab,${var.controlplane_3.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/api.local.okd.lab/${var.controlplane_3.address}"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "api.local.okd.lab,${var.controlplane_3.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/api-int.local.okd.lab/${var.controlplane_3.address}"
+    }
+    options {
+      option_name  = "host-record"
+      option_value = "api-int.local.okd.lab,${var.controlplane_3.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/oauth-openshift.apps.local.okd.lab/${var.controlplane_3.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/console-openshift-console.apps.local.okd.lab/${var.controlplane_3.address}"
+    }
+
+    # etcd
+    options {
+      option_name  = "address"
+      option_value = "/etcd-0.local.okd.lab/${var.controlplane_1.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/etcd-1.local.okd.lab/${var.controlplane_2.address}"
+    }
+    options {
+      option_name  = "address"
+      option_value = "/etcd-2.local.okd.lab/${var.controlplane_3.address}"
     }
     options {
       option_name  = "srv-host"

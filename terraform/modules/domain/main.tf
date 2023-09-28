@@ -78,7 +78,7 @@ resource "libvirt_domain" "okd_controlplane_3" {
   name            = var.controlplane_3.name
   description     = var.controlplane_3.description
   vcpu            = var.controlplane_3.vcpu
-  memory          = var.controlplane_3.memory # MiB
+  memory          = var.controlplane_3.memory * 1024 # MiB
   running         = true
   coreos_ignition = var.okd_master_ignition_id
 

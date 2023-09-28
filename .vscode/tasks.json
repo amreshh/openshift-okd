@@ -20,7 +20,7 @@
       "label": "tflint",
       "type": "shell",
       "command": [
-        "tflint ${workspaceFolder}/terraform"
+        "tflint --chdir ${workspaceFolder}/terraform"
       ]
     }
   ]

@@ -1,3 +1,5 @@
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=687624529)
+
 # OpenShift OKD
 This project provisions a single node OpenShift OKD cluster on KVM/QEMU VM's. Infrastructure is provisioned using terraform and the cluster is created using the User-provisioned infrastructure (UPI) method.
 
@@ -10,6 +12,8 @@ When using okd, make sure to download the openshift tools for okd. The redhat pr
 |-------------------|------|-------------|--------------|
 |okd-bootstrap      |4     |15260        |192.168.150.3 |
 |okd-controlplane-1 |4     |15260        |192.168.150.10|
+|okd-controlplane-2 |4     |15260        |192.168.150.11|
+|okd-controlplane-3 |4     |15260        |192.168.150.12|
 
 ## cluster
 |name |domain  |url                                                  |
@@ -23,8 +27,10 @@ Do these steps before opening the project in a devcontainer.
 - Download openshift-install and extract it into [tools](tools)[^3][^4]
 - Setup dnsmasq so everything can be resolved
     ```bash
-    address=/okd.lab/192.168.150.3
-    address=/okd.lab/192.168.150.10
+    address=/okd.lab/192.168.150.3    # bootstrap
+    address=/okd.lab/192.168.150.10   # controlplane 1 
+    address=/okd.lab/192.168.150.11   # controlplane 2
+    address=/okd.lab/192.168.150.12   # controlplane 3
     ```
 - RedHat pull secret[^5]
 - Copy [install-config.yaml.template](install-config.yaml.template) to [install-config.yaml](install-config.yaml) and fill in the required values. The install-config.yaml file is used to generate the ignition files[^6].
@@ -45,13 +51,13 @@ Following steps can be done within the devcontainer.
     ```bash
     openshift-install wait-for bootstrap-complete --log-level=debug
     ```
-- Install controlplane, run commands from within the igntion_configs directory
-    ```bash
-    openshift-install wait-for install-complete --log-level=debug
-    ```
 - At this point the bootstrap node can be destroyed
     ```bash
     # destroy bootstrap node with terraform
+    ```
+- Install controlplane, run commands from within the igntion_configs directory
+    ```bash
+    openshift-install wait-for install-complete --log-level=debug
     ```
 
 # References

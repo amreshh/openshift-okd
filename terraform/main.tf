@@ -7,10 +7,12 @@ module "network" {
 }
 
 module "volumes" {
-  source                   = "./modules/volumes"
-  coreos_image             = var.coreos_image
-  bootstrap_volume_size    = var.bootstrap.disk_size
-  controlplane_volume_size = var.controlplane_1.disk_size # TODO: should I split it per controlplane or keep all the nodes the same size?
+  source                     = "./modules/volumes"
+  coreos_image               = var.coreos_image
+  bootstrap_volume_size      = var.bootstrap.volume_size
+  controlplane_1_volume_size = var.controlplane_1.volume_size
+  controlplane_2_volume_size = var.controlplane_2.volume_size
+  controlplane_3_volume_size = var.controlplane_3.volume_size
 }
 
 module "ignition" {
@@ -18,14 +20,16 @@ module "ignition" {
 }
 
 module "domain" {
-  source                       = "./modules/domain"
-  network_id                   = module.network.okd_network.id
-  okd_bootstrap_volume_id      = module.volumes.okd_bootstrap_volume.id
-  okd_bootstrap_ignition_id    = module.ignition.okd_bootstrap_ignition.id
-  okd_controlplane_1_volume_id = module.volumes.okd_controlplane_1_volume.id
-  okd_controlplane_2_volume_id = module.volumes.okd_controlplane_2_volume.id
-  okd_controlplane_3_volume_id = module.volumes.okd_controlplane_3_volume.id
-  okd_master_ignition_id       = module.ignition.okd_master_ignition.id
+  source     = "./modules/domain"
+  network_id = module.network.okd_network.id
+
+  bootstrap_volume_id   = module.volumes.bootstrap_volume.id
+  bootstrap_ignition_id = module.ignition.bootstrap_ignition.id
+
+  controlplane_1_volume_id = module.volumes.controlplane_1_volume.id
+  controlplane_2_volume_id = module.volumes.controlplane_2_volume.id
+  controlplane_3_volume_id = module.volumes.controlplane_3_volume.id
+  master_ignition_id       = module.ignition.master_ignition.id
 
   bootstrap      = var.bootstrap
   controlplane_1 = var.controlplane_1

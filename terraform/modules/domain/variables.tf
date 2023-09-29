@@ -3,34 +3,34 @@ variable "network_id" {
   description = "value of network_id"
 }
 
-variable "okd_bootstrap_volume_id" {
+variable "bootstrap_volume_id" {
   type        = string
-  description = "value of okd_bootstrap_volume_id"
+  description = "value of bootstrap_volume_id"
 }
 
-variable "okd_bootstrap_ignition_id" {
+variable "bootstrap_ignition_id" {
   type        = string
-  description = "value of okd_bootstrap_ignition_id"
+  description = "value of bootstrap_ignition_id"
 }
 
-variable "okd_controlplane_1_volume_id" {
+variable "controlplane_1_volume_id" {
   type        = string
-  description = "value of okd_controlplane_1_volume_id"
+  description = "value of controlplane_1_volume_id"
 }
 
-variable "okd_controlplane_2_volume_id" {
+variable "controlplane_2_volume_id" {
   type        = string
-  description = "value of okd_controlplane_2_volume_id"
+  description = "value of controlplane_2_volume_id"
 }
 
-variable "okd_controlplane_3_volume_id" {
+variable "controlplane_3_volume_id" {
   type        = string
-  description = "value of okd_controlplane_3_volume_id"
+  description = "value of controlplane_3_volume_id"
 }
 
-variable "okd_master_ignition_id" {
+variable "master_ignition_id" {
   type        = string
-  description = "value of okd_master_ignition_id"
+  description = "value of master_ignition_id"
 }
 
 variable "bootstrap" {

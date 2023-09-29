@@ -15,20 +15,20 @@ resource "libvirt_volume" "okd_bootstrap" {
 resource "libvirt_volume" "okd_controlplane_1" {
   name           = "okd_controlplane_1.qcow2"
   pool           = "default"
-  size           = var.controlplane_volume_size * 1073741824
+  size           = var.controlplane_1_volume_size * 1073741824
   base_volume_id = libvirt_volume.fedora_coreos.id
 }
 
 resource "libvirt_volume" "okd_controlplane_2" {
   name           = "okd_controlplane_2.qcow2"
   pool           = "default"
-  size           = var.controlplane_volume_size * 1073741824
+  size           = var.controlplane_2_volume_size * 1073741824
   base_volume_id = libvirt_volume.fedora_coreos.id
 }
 
 resource "libvirt_volume" "okd_controlplane_3" {
   name           = "okd_controlplane_3.qcow2"
   pool           = "default"
-  size           = var.controlplane_volume_size * 1073741824
+  size           = var.controlplane_3_volume_size * 1073741824
   base_volume_id = libvirt_volume.fedora_coreos.id
 }

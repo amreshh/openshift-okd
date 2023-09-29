@@ -2,7 +2,7 @@
 This project provisions a single node OpenShift OKD cluster on KVM/QEMU VM's. Infrastructure is provisioned using terraform and the cluster is created using the User-provisioned infrastructure (UPI) method.
 
 # Important
-When using okd, make sure to download the openshift tools for okd. The redhat provided tools will not work on fedora coreos.[^1].
+When using okd, make sure to download the openshift tools for okd. The redhat provided tools will not work on fedora coreos[^1].
 
 # Setup
 ## vm's
@@ -51,7 +51,7 @@ Following steps can be done within the devcontainer.
     ```
 - At this point the bootstrap node can be destroyed
     ```bash
-    # destroy bootstrap node with terraform
+    terraform destroy -target module.domain.libvirt_domain.okd_bootstrap
     ```
 - Install controlplane, run commands from within the igntion_configs directory
     ```bash

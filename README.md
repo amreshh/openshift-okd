@@ -49,7 +49,7 @@ Following steps can be done within the devcontainer.
     ```bash
     openshift-install wait-for bootstrap-complete --log-level=debug
     ```
-- At this point the bootstrap node can be destroyed
+- At this point the bootstrap node can be destroyed from within the terraform directory
     ```bash
     terraform destroy -target module.domain.libvirt_domain.okd_bootstrap
     ```

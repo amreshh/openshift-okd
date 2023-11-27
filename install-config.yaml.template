@@ -7,7 +7,7 @@ compute:
 controlPlane:
   hyperthreading: Enabled
   name: master
-  replicas: 1 # set to 1 to enable single node cluster
+  replicas: 3 # set to 1 to enable single node cluster
 metadata:
   name: local # cluster name
 networking:

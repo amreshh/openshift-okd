@@ -1,6 +1,6 @@
 variable "coreos_image" {
   type        = string
-  default     = "../coreos/fedora-coreos-38.20231027.3.2-qemu.x86_64.qcow2"
+  default     = "../coreos/fedora-coreos-39.20231101.3.0-qemu.x86_64.qcow2"
   description = "CoreOS image to use"
 }
 

@@ -1,5 +1,5 @@
 # OpenShift OKD
-This project provisions a 3 node OpenShift OKD cluster on KVM/QEMU VM's (can be adjusted to a single node by commenting out the other nodes). Infrastructure is provisioned using terraform and the cluster is created using the User-provisioned infrastructure (UPI) method.
+This project provisions a single node OpenShift OKD cluster on KVM/QEMU VM's. Infrastructure is provisioned using terraform and the cluster is created using the User-provisioned infrastructure (UPI) method.
 
 # Important
 When using okd, make sure to download the openshift tools for okd. The redhat provided tools will not work on fedora coreos[^1].
@@ -20,13 +20,9 @@ When using okd, make sure to download the openshift tools for okd. The redhat pr
 
 
 # Pre-requisites
-- libvirtd
-- dnsmaq
-- VS Code + Dev Containers extension
-
 Do these steps before opening the project in a devcontainer.
-- Download and unzip the Fedora CoreOS QEMU image into [coreos](coreos)[^2]
-- Download openshift-install and extract it into [tools](tools)[^3][^4]
+- Download and unzip the Fedora CoreOS QEMU image into `./coreos`[^2] (create the folder if it doesn't exist)
+- Download openshift-install and extract it into `./.devcontainer/tools`[^3][^4] (create the folder if it doesn't exist)
 - Setup dnsmasq so everything can be resolved
     ```bash
     address=/okd.lab/192.168.150.3    # bootstrap
@@ -44,25 +40,21 @@ Following steps can be done within the devcontainer.
     ```
 
 # Provision OpenShift OKD
-- Create the infrastructure
+- Create infrastructure, run the commands from within the terraform directory
     ```bash
-    cd terraform
     terraform init
     terraform apply -auto-approve
     ```
-- Install bootstrap node
+- Install bootstrap node, run commands from within the ignition_configs directory
     ```bash
-    cd ignition_configs
     openshift-install wait-for bootstrap-complete --log-level=debug
     ```
-- At this point the bootstrap node can be destroyed
+- At this point the bootstrap node can be destroyed from within the terraform directory
     ```bash
-    cd terraform
     terraform destroy -target module.domain.libvirt_domain.okd_bootstrap
     ```
-- Install controlplane
+- Install controlplane, run commands from within the igntion_configs directory
     ```bash
-    cd ignition_configs
     openshift-install wait-for install-complete --log-level=debug
     ```
 

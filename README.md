@@ -40,21 +40,25 @@ Following steps can be done within the devcontainer.
     ```
 
 # Provision OpenShift OKD
-- Create infrastructure, run the commands from within the terraform directory
+- Create the infrastructure
     ```bash
+    cd terraform
     terraform init
     terraform apply -auto-approve
     ```
-- Install bootstrap node, run commands from within the ignition_configs directory
+- Install the bootstrap node
     ```bash
+    cd ignition_configs
     openshift-install wait-for bootstrap-complete --log-level=debug
     ```
-- At this point the bootstrap node can be destroyed from within the terraform directory
+- At this point the bootstrap node can be destroyed
     ```bash
+    cd terraform
     terraform destroy -target module.domain.libvirt_domain.okd_bootstrap
     ```
-- Install controlplane, run commands from within the igntion_configs directory
+- Install the cluster
     ```bash
+    cd ignition_configs
     openshift-install wait-for install-complete --log-level=debug
     ```
 
